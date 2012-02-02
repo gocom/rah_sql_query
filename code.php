@@ -1,19 +1,20 @@
-<?php
-/**
-	Rah_sql_query v0.3
-	Plugin for Textpattern
-	by Jukka Svahn
-	http://rahforum.biz
-
-	Copyright (C) 2011 Jukka Svahn <http://rahforum.biz>
-	Licensed under GNU Genral Public License version 2
-	http://www.gnu.org/licenses/gpl-2.0.html
-*/
+<?php	##################
+	#
+	#	Rah_sql_query-plugin for Textpattern
+	#	version 0.4
+	#	by Jukka Svahn
+	#	http://rahforum.biz
+	#
+	#	Copyright (C) 2011 Jukka Svahn <http://rahforum.biz>
+	#	Licensed under GNU Genral Public License version 2
+	#	http://www.gnu.org/licenses/gpl-2.0.html
+	#
+	##################
 
 	if(@txpinterface == 'admin') {
 		add_privs('rah_sql_query', '1,2');
 		add_privs('plugin_prefs.rah_sql_query','1,2');
-		register_tab('extensions','rah_sql_query','Run Queries');
+		register_tab('extensions','rah_sql_query',gTxt('rah_sql_query') == 'rah_sql_query' ? 'Run Queries' : gTxt('rah_sql_query'));
 		register_callback('rah_sql_query','rah_sql_query');
 		register_callback('rah_sql_query_head','admin_side','head_end');
 		register_callback('rah_sql_query_prefs','plugin_prefs.rah_sql_query');
@@ -26,27 +27,16 @@
 
 	function rah_sql_query() {
 		
-		global $event, $textarray, $txp_user, $prefs;
+		require_privs('rah_sql_query');
+		
+		global $event, $textarray, $prefs;
 		
 		/*
 			Add pref if the message is signed
 		*/
 		
-		if(
-			gps('rah_sql_query_hidemsg') &&
-			!isset($prefs['rah_sql_query_hidemsg'])
-		) {
-			safe_insert(
-				'txp_prefs',
-				"prefs_id=1,
-				name='rah_sql_query_hidemsg',
-				val='1',
-				type=2,
-				event='admin',
-				html='',
-				position=0,
-				user_name='".doSlash($txp_user)."'"
-			);
+		if(gps('rah_sql_query_hidemsg')) {
+			set_pref('rah_sql_query_hidemsg',1,'rah',PREF_HIDDEN,'text_input',0,PREF_PRIVATE);
 			$prefs['rah_sql_query_hidemsg'] = 1;
 		}
 		
@@ -57,6 +47,7 @@
 		
 		foreach(
 			array(
+				'rah_sql_query' => 'Run Queries',
 				'rah_sql_query_to_run' => 'Query to run',
 				'rah_sql_query_go' => 'Run the query',
 				'rah_sql_query_ok' => 'Query executed succesfully',
@@ -71,7 +62,7 @@
 		$msg = '';
 		
 		$out[] = 
-			'<form method="post" action="index.php" id="rah_sql_query_container">'.n;
+			'<form method="post" action="index.php" id="rah_sql_query_container" class="rah_ui_container">'.n;
 			
 		/*
 			Run the query if something was
@@ -85,14 +76,14 @@
 		
 		if(!isset($prefs['rah_sql_query_hidemsg']))
 			$out[] = 
-				'	<p>'.gTxt('rah_sql_query_notice').' <a href="?event='.$event.'&amp;rah_sql_query_hidemsg=1">'.gTxt('rah_sql_query_hide').'</a>.</p>'.n;
+				'	<p>'.gTxt('rah_sql_query_notice').' <a href="?event='.$event.'&amp;rah_sql_query_hidemsg=1">'.gTxt('rah_sql_query_hide').'</a></p>'.n;
 		
 		$out[] =
 		
 			'	<input type="hidden" name="event" value="'.$event.'" />'.n.
 			'	<p>'.n.
 			'		<label>'.n.
-			'			'.gTxt('rah_sql_query_to_run').':<br />'.n.
+			'			'.gTxt('rah_sql_query_to_run').'<br />'.n.
 			'			<textarea name="query" rows="10" class="code" cols="30">'.htmlspecialchars(ps('query')).'</textarea>'.n.
 			'		</label>'.n.
 			'	</p>'.n.
@@ -103,7 +94,7 @@
 		$out[] =
 			'</form>';
 			
-		pagetop('Run queries',$msg);
+		pagetop(gTxt('rah_sql_query'),$msg);
 		echo implode('',$out);
 	}
 
@@ -131,6 +122,7 @@
 				}
 			</style>
 			<script type="text/javascript">
+				<!--
 				$(document).ready(function(){
 					$('form#rah_sql_query_container').submit(
 						function() {
@@ -138,6 +130,7 @@
 						}
 					)
 				});
+				-->
 			</script>
 EOF;
 	}
@@ -147,10 +140,11 @@ EOF;
 */
 
 	function rah_sql_query_cleanup() {
-		safe_delete(
-			'txp_prefs',
-			"name='rah_sql_query_hidemsg'"
-		);
+		return 
+			safe_delete(
+				'txp_prefs',
+				"name='rah_sql_query_hidemsg'"
+			);
 	}
 
 /**

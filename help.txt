@@ -2,8 +2,8 @@ h1. rah_sql_query
 
 p. Tired of running little php line, or login to phpMyAdmin to run single, very simple query? Do you wish you could do it from Textpattern's user-interface? Rah_sql_query brings SQL queries directly to backstage of all Textpattern installs. Run queries directly from Textpattern's backend, nothing more or less. One field to type in, one button. One task.
 
-* Version: 0.3
-* Updated: 2011/03/14 4:50 PM UTC
+* Version: 0.4
+* Updated: 2011/06/05 8:10 PM UTC
 
 h3. Table of Contents
 
@@ -20,7 +20,6 @@ h3(#requirements). Requirements
 
 p. Minimum requirement:
 
-* PHP 4.3.0 or newer.
 * Textpattern 4.2.0 or newer.
 
 h3(#installation-and-usage). Installation and usage
@@ -34,6 +33,14 @@ p. The general behavior stands:
 # Now the new rah_sql_query is accessible under Extensions.
 
 h3(#changelog). Changelog
+
+p. *Version 0.4*
+
+* Added: rah_ui classes to common elements for easier theming of the plugin interface.
+* Changed: Make the navigation link and page title to use language strings.
+* Changed: Use @set_pref()@ instead of @safe_insert()@.
+* Changed: Return uninstaller query's status for TXP.
+* Fix: Don't spit out JavaScript to the top of the admin-side page if JavaScript is disabled.
 
 p. *Version 0.3*
 
