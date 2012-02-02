@@ -1,0 +1,26 @@
+h1. rah_sql_query
+
+p. Have you tired to run little php line, or open a phpMyAdmin to be able run single and simple query? But your just too lazy to login to another program, and want to do it directly via Textpattern? Now, it is your change. Rah_sql_query-plugin allows you to run queries directly via Textpattern backend, nothing more or less. Just simple textarea and button, error reporting and returned value outputting.
+
+* Version: 0.1
+* Updated: 2008/07/27 14:00 GMT+2
+
+h3. Table of Contents
+
+* "List of features":#list-of-features
+* "Requirements":#requirements
+* "Installation and usage":#installation-and-usage
+
+h3(#list-of-features). List of features
+
+* Allows you to run SQL-queries directly from Textpattern backend
+* Simple and clean panel
+
+h3(#requirements). Requirements
+
+* PHP 4.3.0
+* Textpattern 4.0.x+
+
+h3(#installation-and-usage). Installation and usage
+
+p. The general behavior stands: paste plugin code to the plugin installer textarea and run the automatic setup. Activate the plugin, and the new rah_sql_query-tab is created under "Extensions".

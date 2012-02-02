@@ -1,0 +1,1 @@
+Run plain SQL-queries directly from Textpattern's Extensions-tab
