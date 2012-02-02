@@ -1,15 +1,17 @@
-<?php	##################
-	#
-	#	Rah_sql_query-plugin for Textpattern
-	#	version 0.4
-	#	by Jukka Svahn
-	#	http://rahforum.biz
-	#
-	#	Copyright (C) 2011 Jukka Svahn <http://rahforum.biz>
-	#	Licensed under GNU Genral Public License version 2
-	#	http://www.gnu.org/licenses/gpl-2.0.html
-	#
-	##################
+<?php
+
+/**
+ * Rah_sql_query plugin for Textpattern CMS
+ *
+ * @author Jukka Svahn
+ * @date 2008-
+ * @license GNU GPLv2
+ * @link http://rahforum.biz/plugins/rah_sql_query
+ *
+ * Copyright (C) 2012 Jukka Svahn <http://rahforum.biz>
+ * Licensed under GNU Genral Public License version 2
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ */
 
 	if(@txpinterface == 'admin') {
 		add_privs('rah_sql_query', '1,2');
@@ -22,8 +24,8 @@
 	}
 
 /**
-	The pane
-*/
+ * The pane
+ */
 
 	function rah_sql_query() {
 		
@@ -99,8 +101,8 @@
 	}
 
 /**
-	Adds styles and JavaScript to the <head>
-*/
+ * Adds styles and JavaScript to the <head>
+ */
 
 	function rah_sql_query_head() {
 		
@@ -136,8 +138,8 @@ EOF;
 	}
 
 /**
-	Do clean up when uninstalling. Removes added prefs.
-*/
+ * Do clean up when uninstalling. Removes added prefs.
+ */
 
 	function rah_sql_query_cleanup() {
 		return 
@@ -148,8 +150,8 @@ EOF;
 	}
 
 /**
-	Redirect to the prefs pane
-*/
+ * Redirect to the prefs pane
+ */
 
 	function rah_sql_query_prefs() {
 		header('Location: ?event=rah_sql_query');
