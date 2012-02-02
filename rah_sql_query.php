@@ -51,7 +51,7 @@
 		
 		if(ps('query') && ps('_txp_token') == form_token()) {
 			@$query = safe_query(ps('query'));
-			$msg = $query ? gTxt('rah_sql_query_ok') : gTxt('rah_sql_query_error');
+			$msg = $query !== FALSE ? gTxt('rah_sql_query_ok') : gTxt('rah_sql_query_error');
 		}
 		
 		if(!isset($prefs['rah_sql_query_hidemsg']))
