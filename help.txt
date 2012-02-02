@@ -1,9 +1,9 @@
 h1. rah_sql_query
 
-p. Have you tired to run little php line, or open a phpMyAdmin to be able run single and simple query? But your just too lazy to login to another program, and want to do it directly via Textpattern? Now, it is your change. Rah_sql_query-plugin allows you to run queries directly via Textpattern backend, nothing more or less. Just simple textarea and button, error reporting and returned value outputting.
+p. Tired of running little php line, or login to phpMyAdmin to run single, very simple query? Do you wish you could do it from Textpattern's user-interface? Rah_sql_query brings SQL queries directly to backstage of all Textpattern installs. Run queries directly from Textpattern's backend, nothing more or less. One field to type in, one button. One task.
 
-* Version: 0.1
-* Updated: 2008/07/27 14:00 GMT+2
+* Version: 0.2
+* Updated: 2011/03/14 4:30 PM UTC
 
 h3. Table of Contents
 
@@ -13,14 +13,39 @@ h3. Table of Contents
 
 h3(#list-of-features). List of features
 
-* Allows you to run SQL-queries directly from Textpattern backend
-* Simple and clean panel
+* Allows you to run SQL queries directly from Textpattern's user-interface
+* Very simple and clean admin panel.
 
 h3(#requirements). Requirements
 
-* PHP 4.3.0
-* Textpattern 4.0.x+
+p. Minimum requirement:
+
+* PHP 4.3.0 or newer.
+* Textpattern 4.2.0 or newer.
 
 h3(#installation-and-usage). Installation and usage
 
-p. The general behavior stands: paste plugin code to the plugin installer textarea and run the automatic setup. Activate the plugin, and the new rah_sql_query-tab is created under "Extensions".
+p. The general behavior stands:
+
+# Navigate to your Textpattern install's Plugins pane.
+# Paste the downloaded plugin code to the plugin installer field.
+# Click the button and run the automated setup program.
+# When all done, just activate the plugin from the list of plugins.
+# Now the new rah_sql_query is accessible under Extensions.
+
+h3(#changelog). Changelog
+
+p. *Version 0.2*
+
+* Now the pane requires Publisher's privaleges.
+* Added language string support.
+* Added confirmation dialog for extra safety.
+* Added option to hide the safety notice.
+* Now keeps the last run query in the field.
+* Removed inline styles.
+* Uses Textpattern's message system to deliver the feedback messages.
+* Now requires Textpattern version 4.2.0 or newer.
+
+p. *Version 0.1*
+
+* Initial release.
