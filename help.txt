@@ -2,8 +2,8 @@ h1. rah_sql_query
 
 p. Tired of running little php line, or login to phpMyAdmin to run single, very simple query? Do you wish you could do it from Textpattern's user-interface? Rah_sql_query brings SQL queries directly to backstage of all Textpattern installs. Run queries directly from Textpattern's backend, nothing more or less. One field to type in, one button. One task.
 
-* Version: 0.2
-* Updated: 2011/03/14 4:30 PM UTC
+* Version: 0.3
+* Updated: 2011/03/14 4:50 PM UTC
 
 h3. Table of Contents
 
@@ -34,6 +34,11 @@ p. The general behavior stands:
 # Now the new rah_sql_query is accessible under Extensions.
 
 h3(#changelog). Changelog
+
+p. *Version 0.3*
+
+* Added privileges for the options link.
+* Changed privileges back to Publisher and Editor (1 and 2 levels) in favor of the plugins pane's options link.
 
 p. *Version 0.2*
 

@@ -1,6 +1,6 @@
 <?php
 /**
-	Rah_sql_query v0.2
+	Rah_sql_query v0.3
 	Plugin for Textpattern
 	by Jukka Svahn
 	http://rahforum.biz
@@ -11,7 +11,8 @@
 */
 
 	if(@txpinterface == 'admin') {
-		add_privs('rah_sql_query', '1');
+		add_privs('rah_sql_query', '1,2');
+		add_privs('plugin_prefs.rah_sql_query','1,2');
 		register_tab('extensions','rah_sql_query','Run Queries');
 		register_callback('rah_sql_query','rah_sql_query');
 		register_callback('rah_sql_query_head','admin_side','head_end');
