@@ -1,0 +1,9 @@
+#@admin
+#Default language, en-us, en-gb
+rah_sql_query => Run Queries
+rah_sql_query_to_run => Query to run
+rah_sql_query_go => Run the query
+rah_sql_query_ok => Query executed successfully.
+rah_sql_query_error => Running the query failed.
+rah_sql_query_notice => Please note that misused queries can cause data losses, harm your database and website. If you are unsure, backup the database before running any queries. Recommended to use only use on development installs, not on live sites.
+rah_sql_query_hide => Hide the message

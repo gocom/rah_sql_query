@@ -15,12 +15,12 @@
 
 	if(@txpinterface == 'admin') {
 		add_privs('rah_sql_query', '1,2');
-		add_privs('plugin_prefs.rah_sql_query','1,2');
-		register_tab('extensions','rah_sql_query',gTxt('rah_sql_query') == 'rah_sql_query' ? 'Run Queries' : gTxt('rah_sql_query'));
-		register_callback('rah_sql_query','rah_sql_query');
-		register_callback('rah_sql_query_head','admin_side','head_end');
-		register_callback('rah_sql_query_prefs','plugin_prefs.rah_sql_query');
-		register_callback('rah_sql_query_cleanup','plugin_lifecycle.rah_sql_query','deleted');
+		add_privs('plugin_prefs.rah_sql_query', '1,2');
+		register_tab('extensions', 'rah_sql_query', gTxt('rah_sql_query'));
+		register_callback('rah_sql_query', 'rah_sql_query');
+		register_callback('rah_sql_query_head', 'admin_side', 'head_end');
+		register_callback('rah_sql_query_prefs', 'plugin_prefs.rah_sql_query');
+		register_callback('rah_sql_query_cleanup', 'plugin_lifecycle.rah_sql_query', 'deleted');
 	}
 
 /**
@@ -31,7 +31,7 @@
 		
 		require_privs('rah_sql_query');
 		
-		global $event, $textarray, $prefs;
+		global $event, $prefs;
 		
 		/*
 			Add pref if the message is signed
@@ -41,25 +41,6 @@
 			set_pref('rah_sql_query_hidemsg',1,'rah',PREF_HIDDEN,'text_input',0,PREF_PRIVATE);
 			$prefs['rah_sql_query_hidemsg'] = 1;
 		}
-		
-		/*
-			Make sure language strings
-			are set
-		*/
-		
-		foreach(
-			array(
-				'rah_sql_query' => 'Run Queries',
-				'rah_sql_query_to_run' => 'Query to run',
-				'rah_sql_query_go' => 'Run the query',
-				'rah_sql_query_ok' => 'Query executed succesfully',
-				'rah_sql_query_error' => 'Something gone terribly wrong with the query',
-				'rah_sql_query_notice' => 'Please note that missused queries can cause loss of data, harm your database and/or Textpattern install. If you are unsure, remember to backup the database before running a query. Recommended to use only use on development and test installs, not on live sites.',
-				'rah_sql_query_hide' => 'Hide the message'
-			) as $string => $translation
-		)
-			if(!isset($textarray[$string]))
-				$textarray[$string] = $translation;
 		
 		$msg = '';
 		
