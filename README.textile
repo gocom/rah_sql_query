@@ -11,7 +11,7 @@ h2. Requirements
 
 p. Minimum requirements:
 
-* Textpattern 4.2.0 or newer.
+* Textpattern 4.4.1 or newer.
 
 h2. Installation and usage
 
@@ -24,6 +24,10 @@ p. The general behavior stands:
 # Now the new rah_sql_query is accessible under Extensions.
 
 h2. Changelog
+
+h3. Version 0.5 - upcoming
+
+* Added: CSRF protection.
 
 h3. Version 0.4 - 2011/06/05
 

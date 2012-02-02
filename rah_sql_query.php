@@ -45,14 +45,11 @@
 		$msg = '';
 		
 		$out[] = 
-			'<form method="post" action="index.php" id="rah_sql_query_container" class="rah_ui_container">'.n;
-			
-		/*
-			Run the query if something was
-			sent
-		*/
+			'<form method="post" action="index.php" id="rah_sql_query_container" class="rah_ui_container">'.n.
+			tInput().n.
+			eInput($event).n;
 		
-		if(ps('query')) {
+		if(ps('query') && ps('_txp_token') == form_token()) {
 			@$query = safe_query(ps('query'));
 			$msg = $query ? gTxt('rah_sql_query_ok') : gTxt('rah_sql_query_error');
 		}
@@ -62,8 +59,7 @@
 				'	<p>'.gTxt('rah_sql_query_notice').' <a href="?event='.$event.'&amp;rah_sql_query_hidemsg=1">'.gTxt('rah_sql_query_hide').'</a></p>'.n;
 		
 		$out[] =
-		
-			'	<input type="hidden" name="event" value="'.$event.'" />'.n.
+
 			'	<p>'.n.
 			'		<label>'.n.
 			'			'.gTxt('rah_sql_query_to_run').'<br />'.n.
@@ -77,8 +73,8 @@
 		$out[] =
 			'</form>';
 			
-		pagetop(gTxt('rah_sql_query'),$msg);
-		echo implode('',$out);
+		pagetop(gTxt('rah_sql_query'), $msg);
+		echo implode('', $out);
 	}
 
 /**
