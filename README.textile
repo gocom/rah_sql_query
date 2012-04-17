@@ -1,5 +1,11 @@
 h1. rah_sql_query
 
+p. Rah_sql_query has been replaced by more powerful "rah_terminal":https://github.com/gocom/rah_terminal plugin. Rah_terminal packs in all the features that rah_test_php and rah_sql_query had, and even more. It arguably even has a better name. As the project is superseded by rah_terminal, no future updates will be provided. All users are encouraged to update to the newer plugin if possible.
+
+p. You are of course free to keep using what you have now, too. The plugin doesn't self-destruct or anything like that. It will work until it gets outdated and breaks, because of compatibility issues.
+
+h2. The old description
+
 p. Tired of running little php line, or login to phpMyAdmin to run single, very simple query? Do you wish you could do it from Textpattern's user-interface? Rah_sql_query brings SQL queries directly to backstage of all Textpattern installs. Run queries directly from Textpattern's backend, nothing more or less. One field to type in, one button. One task.
 
 h2. List of features
